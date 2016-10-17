@@ -1,82 +1,48 @@
-# react-native-eventemitter
-
-[EventEmitter2](https://github.com/hij1nx/EventEmitter2) 在 React-Native 封装使用。 
+# react-native-md5
 
 ```
-npm install react-native-eventemitter --save
+npm install react-native-md5 --save
 ```
 
 ```
-import EventEmitter from "react-native-eventemitter";
+import EventEmitter from "react-native-md5";
 ```
 
 
 一个栗子
 ```
 ....
-import EventEmitter from "react-native-eventemitter";
+import md5 from "react-native-md5";
 ....
 
 componentWillMount() {
 
+        let hex_md5v = md5.hex_md5( Date.now() +"" );
+        console.log(">>>>hex_md5:", hex_md5v);
 
-		let callback = (v)=>{
-            console.log("Main:", v);
-        };
-		//监听1
-        EventEmitter.on("foo", (value)=>{
-            console.log("foo", value);
-        });
-		//监听2
-        EventEmitter.on("foo", callback);
+        let b64_md5v = md5.b64_md5( Date.now() +"" );
+        console.log(">>>>b64_md5:", b64_md5v);
 
-		//监听匹配
-		EventEmitter.on("foo.*", (value)=>{
-            console.log("ALL", value);
-        });
-		//条件监听 事件执行2次后销毁
-        EventEmitter.many('foo.*', 2, function(value) {
-            console.log('foo', value);
-        });
-		//移除所有监听
-		//EventEmitter.removeAllListeners("foo");
-		//移除监听2
-		//EventEmitter.removeListener("foo", callback);
-		
-		//触发事件1
-		EventEmitter.emit("foo", "value");
-		//触发事件2
-		EventEmitter.emit("foo.a", "value");
+        let str_md5v = md5.str_md5( Date.now() +"" );
+        console.log(">>>>str_md5:", str_md5v);
+
+        let hex_hmac_md5v = md5.hex_hmac_md5("my_key", Date.now() +"" );
+        console.log(">>>>hex_hmac_md5:", hex_hmac_md5v);
+
+        let b64_hmac_md5v = md5.b64_hmac_md5("my_key", Date.now() +"" );
+        console.log(">>>>b64_hmac_md5:", b64_hmac_md5v);
+
+        let str_hmac_md5v = md5.str_hmac_md5("my_key", Date.now() +"" );
+        console.log(">>>>str_hmac_md5:", str_hmac_md5v);
+
 }
 
 ....
 
-
-注：
-
-EventEmitter 为全局变量所以在其他组件中同样可以使用以上方式增加监听，或移除
-
-建议在组件componentWillUnmount 时移除当前监听
-
-栗子：
-.....
-componentWillMount() {
-	EventEmitter.on("foo", this.callback);
-}
-
-componentWillUnmount() {
-     EventEmitter.removeListener("foo", this.callback);
-}
-
-callback(value) {
- 	console.log("foo", value);
-}
-.....
 
 ```
 
-更多姿势参考 [EventEmitter2](https://github.com/hij1nx/EventEmitter2)。 
-
+更多姿势参考 [EventEmitter2](http://pajhome.org.uk/crypt/md5/scripts.html)。
 
 ## License
 
