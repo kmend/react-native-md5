@@ -42,7 +42,7 @@ componentWillMount() {
 
 ```
 
-更多姿势参考 [EventEmitter2](http://pajhome.org.uk/crypt/md5/scripts.html)。
+更多姿势参考 [scripts](http://pajhome.org.uk/crypt/md5/scripts.html)。
 
 ## License
 

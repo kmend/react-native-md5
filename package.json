@@ -1,7 +1,7 @@
 {
-  "name": "react-native-eventemitter",
-  "version": "0.0.1",
-  "description": "react-native-eventemitter Demo",
+  "name": "react-native-md5",
+  "version": "1.0.0",
+  "description": "react-native-md5 Demo",
   "main": "index.js",
   "repository": {
     "type": "git",
